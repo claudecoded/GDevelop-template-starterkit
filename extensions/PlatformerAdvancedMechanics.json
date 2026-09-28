@@ -1,0 +1,26 @@
+{
+  "description": "Advanced movement mechanics for Metroidvania platformers.",
+  "fullName": "Metroidvania Advanced Movement",
+  "name": "PlatformerAdvancedMechanics",
+  "version": "1.0.0",
+  "functions": [
+    {
+      "description": "Updates wall sliding and double jump states.",
+      "fullName": "Update Mechanics",
+      "name": "UpdateMechanics",
+      "functionType": "Action",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": "JavaScript",
+              "inlineCode": "const player = runtimeScene.getObjects('Player')[0];\nif (!player) return;\nconst behavior = player.getBehavior('PlatformerObject');\nlet vars = player.getVariables();\n\nif (behavior.isOnFloor()) {\n    vars.get('CurrentJumps').setNumber(0);\n}\nif (runtimeScene.getGame().getInputManager().isKeyPressed(32)) {\n    let currentJumps = vars.get('CurrentJumps').getAsNumber();\n    if (behavior.isOnFloor()) {\n        behavior.simulateJumpKey();\n        vars.get('CurrentJumps').setNumber(1);\n    } else if (currentJumps < 2) {\n        behavior.simulateJumpKey();\n        vars.get('CurrentJumps').setNumber(currentJumps + 1);\n    }\n}\nif (!behavior.isOnFloor() && behavior.isCollidingWithWall()) {\n    if (behavior.getCurrentSpeedY() > 100) behavior.setSpeedY(100);\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

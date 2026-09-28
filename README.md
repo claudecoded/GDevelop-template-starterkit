@@ -62,4 +62,4 @@ git clone https://github.com
 * **Roguelike:** Press **Left / Right Arrows** to step exactly 32 pixels on the grid. Every movement triggers the AI enemy action turn instantly.
 * **Deckbuilder:** Left-click the **DrawButton** on the screen to draw 3 card items randomly from your backend JavaScript array pile.
 
-(you scrolled so down and your pickaxe broked, take a new one) --> <img width="360" height="360" alt="image" src="https://github.com/user-attachments/assets/666c0f70-b22e-4b92-8af2-e2257086869c" />
+(you scrolled so down and your pickaxe broked, take a new one) --> <img width="235" height="247" alt="image" src="https://github.com/user-attachments/assets/e78da454-705c-496c-81f2-f1e10ae9dc65" />

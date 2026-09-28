@@ -1,0 +1,29 @@
+{
+  "name": "DeckbuilderScene",
+  "title": "Card Battle Screen",
+  "objects": [
+    { "name": "CardObject", "type": "Sprite", "variables": [{ "name": "CardName", "value": "" }] },
+    { "name": "DrawButton", "type": "Sprite", "variables": [] }
+  ],
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "SourisSurObjet",
+          "parameters": [ "DrawButton" ]
+        },
+        {
+          "type": "MouseButtonPressed",
+          "parameters": [ "", "Left" ]
+        }
+      ],
+      "actions": [
+        {
+          "type": "CardSystemController::DrawCards",
+          "parameters": []
+        }
+      ]
+    }
+  ]
+}

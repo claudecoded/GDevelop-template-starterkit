@@ -1,0 +1,23 @@
+{
+  "name": "MainMenuScene",
+  "title": "Starter Kit Hub Menu",
+  "objects": [
+    { "name": "BtnMetroidvania", "type": "Sprite" },
+    { "name": "BtnRoguelike", "type": "Sprite" },
+    { "name": "BtnDeckbuilder", "type": "Sprite" }
+  ],
+  "events": [
+    {
+      "conditions": [{ "type": "SourisSurObjet", "parameters": [ "BtnMetroidvania" ] }, { "type": "MouseButtonPressed", "parameters": [ "", "Left" ] }],
+      "actions": [{ "type": "Scene", "parameters": [ "", "MetroidvaniaScene" ] }]
+    },
+    {
+      "conditions": [{ "type": "SourisSurObjet", "parameters": [ "BtnRoguelike" ] }, { "type": "MouseButtonPressed", "parameters": [ "", "Left" ] }],
+      "actions": [{ "type": "Scene", "parameters": [ "", "RoguelikeScene" ] }]
+    },
+    {
+      "conditions": [{ "type": "SourisSurObjet", "parameters": [ "BtnDeckbuilder" ] }, { "type": "MouseButtonPressed", "parameters": [ "", "Left" ] }],
+      "actions": [{ "type": "Scene", "parameters": [ "", "DeckbuilderScene" ] }]
+    }
+  ]
+}

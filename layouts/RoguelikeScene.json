@@ -1,0 +1,72 @@
+{
+  "name": "RoguelikeScene",
+  "title": "Roguelike Grid Dungeon",
+  "objects": [
+    { "name": "Player", "type": "Sprite", "variables": [] },
+    { "name": "Enemy", "type": "Sprite", "variables": [] },
+    { "name": "Obstacle", "type": "Sprite", "variables": [] }
+  ],
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "typeString": "Standard",
+      "conditions": [
+        {
+          "type": "BuiltinCommonInstructions::Once"
+        }
+      ],
+      "actions": [
+        {
+          "type": "ModVarSceneString",
+          "parameters": [ "CurrentTurn", "=", "PLAYER" ]
+        },
+        {
+          "type": "ModVarSceneNum",
+          "parameters": [ "GridSize", "=", "32" ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "ValVarSceneString",
+          "parameters": [ "CurrentTurn", "==", "PLAYER" ]
+        },
+        {
+          "type": "KeyReleased",
+          "parameters": [ "", "Right" ]
+        }
+      ],
+      "actions": [
+        {
+          "type": "MoverObjetos",
+          "parameters": [ "Player", "+", "Variable(GridSize)", "0" ]
+        },
+        {
+          "type": "ModVarSceneString",
+          "parameters": [ "CurrentTurn", "=", "ENEMY" ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": "ValVarSceneString",
+          "parameters": [ "CurrentTurn", "==", "ENEMY" ]
+        }
+      ],
+      "actions": [
+        {
+          "type": "MoverObjetos",
+          "parameters": [ "Enemy", "-", "Variable(GridSize)", "0" ]
+        },
+        {
+          "type": "ModVarSceneString",
+          "parameters": [ "CurrentTurn", "=", "PLAYER" ]
+        }
+      ]
+    }
+  ]
+}

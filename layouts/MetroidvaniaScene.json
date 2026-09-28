@@ -1,0 +1,23 @@
+{
+  "name": "MetroidvaniaScene",
+  "stopSoundsOnStartup": true,
+  "title": "Metroidvania Level",
+  "v": 4,
+  "objects": [
+    { "name": "Player", "type": "Sprite", "variables": [{ "name": "CurrentJumps", "value": 0 }] },
+    { "name": "Wall", "type": "Sprite", "variables": [] }
+  ],
+  "layers": [ { "name": "", "visibility": true } ],
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [],
+      "actions": [
+        {
+          "type": "PlatformerAdvancedMechanics::UpdateMechanics",
+          "parameters": [ "Player" ]
+        }
+      ]
+    }
+  ]
+}

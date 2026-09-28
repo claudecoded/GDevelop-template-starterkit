@@ -1,0 +1,23 @@
+{
+  "fullName": "Card Deck Builder System",
+  "name": "CardSystemController",
+  "version": "1.0.0",
+  "functions": [
+    {
+      "fullName": "Draw Cards Function",
+      "name": "DrawCards",
+      "functionType": "Action",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "actions": [
+            {
+              "type": "JavaScript",
+              "inlineCode": "if (!window.deck) {\n    window.deck = ['Strike', 'Strike', 'Defend', 'Defend', 'Draw2'];\n    window.hand = [];\n}\nlet amount = 3;\nfor (let i = 0; i < amount; i++) {\n    if (window.deck.length > 0) {\n        let card = window.deck.pop();\n        window.hand.push(card);\n        let newCard = runtimeScene.createObject('CardObject');\n        if(newCard) {\n            newCard.setPosition(100 + (window.hand.length * 90), 450);\n            newCard.getVariables().get('CardName').setString(card);\n        }\n    }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
